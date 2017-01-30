@@ -8,4 +8,4 @@ set -e
 
 #curl https://raw.githubusercontent.com/princemaple/server-setup/master/setup-zsh.sh | zsh
 
-ssh-keygen -t rsa -b 4096 -C "chenpaul914@gmail.com" -N "" -f "~/.ssh/id_rsa"
+ssh-keygen -t rsa -b 4096 -C "chenpaul914@gmail.com" -N "" -f "$(dirname '~')/.ssh/id_rsa"
