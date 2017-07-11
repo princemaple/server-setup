@@ -11,3 +11,5 @@ yes "" | ssh-keygen -t rsa -b 4096 -C "chenpaul914@gmail.com" -N ""
 
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_rsa
+
+curl -fsSL get.docker.com | sh
