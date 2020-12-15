@@ -15,9 +15,6 @@ ssh-add ~/.ssh/id_rsa
 # Leaving it to docker-machine
 # curl -fsSL get.docker.com | sh
 
-echo "alias dcs='docker-compose -f docker-compose.staging.yml'" | cat >> ~/.zshrc
-echo "alias dcp='docker-compose -f docker-compose.prod.yml'" | cat >> ~/.zshrc
-
 cat << EOF >> ~/.zshrc
 function container_hash() {
   docker ps | grep $1 | cut -d ' ' -f 1
