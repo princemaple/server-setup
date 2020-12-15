@@ -19,9 +19,19 @@ echo "alias dcs='docker-compose -f docker-compose.staging.yml'" | cat >> ~/.zshr
 echo "alias dcp='docker-compose -f docker-compose.prod.yml'" | cat >> ~/.zshrc
 
 cat << EOF >> ~/.zshrc
+function container_hash() {
+  docker ps | grep $1 | cut -d ' ' -f 1
+}
+
 function dexec() {
-  hash=$(docker ps | grep $1 | cut -d ' ' -f 1)
+  hash=$(container_hash $1)
   echo $1:$hash
   docker exec -it $hash ${@:2}
-}   
+}
+
+function dlogs() {
+  hash=$(container_hash $1)
+  echo $1:$hash
+  docker logs $hash ${@:2}
+}
 EOF
