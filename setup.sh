@@ -34,8 +34,8 @@ function dlogs() {
 }
 
 function dcp() {
-  hash=$(container_hash $1)
-  echo $1:$hash
-  docker cp $hash:$2 $3
+  hash=\$(container_hash \$1)
+  echo \$1:\$hash
+  docker cp $hash:\$2 \$3
 }
 EOF
