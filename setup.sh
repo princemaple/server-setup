@@ -3,6 +3,7 @@ set -e
 apt-get update && apt-get install -y curl git htop zsh sudo
 
 curl https://raw.githubusercontent.com/princemaple/server-setup/main/setup-zsh.sh | zsh
+curl https://raw.githubusercontent.com/princemaple/server-setup/main/setup-vim.sh | zsh
 
 yes "" | ssh-keygen -t ed25519 -C "chenpaul914@gmail.com" -N ""
 
