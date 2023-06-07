@@ -4,7 +4,7 @@ dnf -y update
 
 dnf -y install epel-release
 dnf makecache
-dnf -y install curl git htop zsh sudo
+dnf -y install curl git htop zsh sudo util-linux-user
 
 curl https://raw.githubusercontent.com/princemaple/server-setup/main/setup-zsh.sh | zsh
 curl https://raw.githubusercontent.com/princemaple/server-setup/main/setup-vim.sh | zsh
