@@ -38,6 +38,18 @@ function dcp() {
   echo \$1:\$hash
   docker cp $hash:\$2 \$3
 }
+
+function dbup() {
+  old=$1
+  new=$2
+  db=$3
+
+  docker exec -it $old pg_dump -U postgres -Fc -d $db -f /tmp/dump
+  docker cp $old:/tmp/dump ./dump
+  docker cp ./dump $new:/tmp/dump
+  docker exec -it $new psql -U postgres -c "create database $db;"
+  docker exec -it $new pg_restore -U postgres -Fc -d $db /tmp/dump
+}
 EOF
 
 dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
